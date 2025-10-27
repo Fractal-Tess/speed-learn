@@ -60,7 +60,7 @@ vec4 cppn_fn(vec2 coordinate,float in0,float in1,float in2){
 
 void mainImage(out vec4 fragColor,in vec2 fragCoord){
     vec2 uv=fragCoord/uResolution.xy*2.-1.;
-    uv.y*=-1.;
+    uv.y*=1.;
     uv+=uWarp*vec2(sin(uv.y*6.283+uTime*0.5),cos(uv.x*6.283+uTime*0.5))*0.05;
     fragColor=cppn_fn(uv,0.1*sin(0.3*uTime),0.1*sin(0.69*uTime),0.1*sin(0.44*uTime));
 }
@@ -163,5 +163,5 @@ export default function DarkVeil({
     warpAmount,
     resolutionScale,
   ]);
-  return <canvas ref={ref} className="w-full h-full block" />;
+  return <canvas ref={ref} className="w-full h-full block absolute inset-0" />;
 }

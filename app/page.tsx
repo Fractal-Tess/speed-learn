@@ -2,22 +2,10 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { BookOpen, GraduationCap } from 'lucide-react';
-import DarkVeil from '@/components/DarkVeil';
 
 export default function Home() {
   return (
-    <div className="min-h-screen relative">
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1620712943543-56fc9e5f1ca1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80')",
-        }}
-      />
-
-      {/* Dark Veil Overlay */}
-      <DarkVeil></DarkVeil>
+    <div className="h-svh relative">
 
       {/* Navigation */}
       <header className="absolute top-0 left-0 right-0 z-30 border-b border-white/10 bg-black/30 backdrop-blur-md">
@@ -55,8 +43,9 @@ export default function Home() {
 
             {/* Description */}
             <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed drop-shadow-lg">
-              Учете с интерактивни тестове, проследяване на напредъка и незабавна обратна връзка.
-              Модерна платформа за дигитално образование.
+              Учете с интерактивни тестове, проследяване на напредъка и
+              незабавна обратна връзка. Модерна платформа за дигитално
+              образование.
             </p>
 
             {/* Call to Action */}
@@ -81,9 +70,12 @@ export default function Home() {
                   <BookOpen className="h-8 w-8 text-blue-300" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-white mb-2">5 модула</h3>
+                  <h3 className="text-xl font-semibold text-white mb-2">
+                    5 модула
+                  </h3>
                   <p className="text-gray-300 text-sm leading-relaxed">
-                    Интерактивни тестове по всички основни теми за цифрови сигнали
+                    Интерактивни тестове по всички основни теми за цифрови
+                    сигнали
                   </p>
                 </div>
               </div>
@@ -95,7 +87,9 @@ export default function Home() {
                   <GraduationCap className="h-8 w-8 text-green-300" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-white mb-2">Прогрес</h3>
+                  <h3 className="text-xl font-semibold text-white mb-2">
+                    Прогрес
+                  </h3>
                   <p className="text-gray-300 text-sm leading-relaxed">
                     Визуални индикатори за правилни и грешни отговори
                   </p>
@@ -109,7 +103,9 @@ export default function Home() {
                   <BookOpen className="h-8 w-8 text-purple-300" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-white mb-2">Обратна връзка</h3>
+                  <h3 className="text-xl font-semibold text-white mb-2">
+                    Обратна връзка
+                  </h3>
                   <p className="text-gray-300 text-sm leading-relaxed">
                     Незабавна проверка на отговорите с подробна обратна връзка
                   </p>

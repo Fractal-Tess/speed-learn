@@ -16,7 +16,7 @@ export default function QuestionIndicators({
   onQuestionSelect
 }: QuestionIndicatorsProps) {
   return (
-    <div className="flex flex-wrap gap-2 justify-center p-4 bg-gray-50 rounded-lg">
+    <div className="flex flex-wrap gap-2 justify-center p-4 bg-card border rounded-lg">
       {questions.map((question, index) => {
         const isAnswered = answers[question.id] && answers[question.id].length > 0;
         const isChecked = checkedAnswers[question.id] !== undefined;
