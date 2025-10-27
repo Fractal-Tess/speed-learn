@@ -19,16 +19,16 @@ export default function ModuleLayout({ module }: ModuleProps) {
   const hasNext = moduleId < 5; // Assuming modules 0-5
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white shadow-sm border-b">
+      <header className="border-b bg-card/80 backdrop-blur-sm">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-4">
-              <Link href="/modules" className="text-blue-600 hover:text-blue-800">
-                ← Back to Modules
+              <Link href="/modules" className="text-primary hover:text-primary/80 transition-colors">
+                ← Към модулите
               </Link>
-              <h1 className="text-xl font-semibold text-gray-900">
+              <h1 className="text-xl font-semibold text-foreground">
                 {module.title}
               </h1>
             </div>
@@ -38,7 +38,7 @@ export default function ModuleLayout({ module }: ModuleProps) {
                 <Link href={`/modules/${moduleId - 1}`}>
                   <Button variant="outline" size="sm">
                     <ChevronLeft className="h-4 w-4 mr-1" />
-                    Previous
+                    Предишен
                   </Button>
                 </Link>
               )}
@@ -47,7 +47,7 @@ export default function ModuleLayout({ module }: ModuleProps) {
                 <Link href={`/modules/${moduleId + 1}`}>
                   <Button variant="outline" size="sm">
                     <ChevronRight className="h-4 w-4 ml-1" />
-                    Next
+                    Следващ
                   </Button>
                 </Link>
               )}

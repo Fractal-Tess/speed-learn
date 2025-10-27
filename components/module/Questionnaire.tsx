@@ -185,23 +185,23 @@ export default function Questionnaire({ content }: QuestionnaireProps) {
       {/* Progress */}
       <div>
         <div className="flex items-center justify-between mb-2">
-          <span className="text-sm font-medium text-gray-700">
+          <span className="text-sm font-medium text-foreground">
             Въпрос {currentQuestion + 1} от {questions.length}
           </span>
           <div className="flex items-center space-x-2">
             {checkedAnswers[currentQ.id] !== undefined && (
               <div className="flex items-center space-x-1">
                 {checkedAnswers[currentQ.id] ? (
-                  <CheckCircle className="h-4 w-4 text-green-600" />
+                  <CheckCircle className="h-4 w-4 text-green-500" />
                 ) : (
-                  <XCircle className="h-4 w-4 text-red-600" />
+                  <XCircle className="h-4 w-4 text-red-500" />
                 )}
-                <span className={`text-sm ${checkedAnswers[currentQ.id] ? 'text-green-600' : 'text-red-600'}`}>
+                <span className={`text-sm ${checkedAnswers[currentQ.id] ? 'text-green-500' : 'text-red-500'}`}>
                   {checkedAnswers[currentQ.id] ? 'Правилно' : 'Грешно'}
                 </span>
               </div>
             )}
-            <span className="text-sm text-gray-500">
+            <span className="text-sm text-muted-foreground">
               {answeredCount} с отговори
             </span>
           </div>
@@ -210,8 +210,8 @@ export default function Questionnaire({ content }: QuestionnaireProps) {
       </div>
 
       {/* Question */}
-      <Card className="p-6">
-        <h3 className="text-lg font-medium text-gray-900 mb-4">
+      <Card className="p-6 bg-card border-border">
+        <h3 className="text-lg font-medium text-foreground mb-4">
           {currentQ.question}
         </h3>
 
@@ -250,15 +250,15 @@ export default function Questionnaire({ content }: QuestionnaireProps) {
                     htmlFor={`option-${index}`}
                     className="flex-1 text-sm font-normal cursor-pointer flex items-center justify-between"
                   >
-                    <span className={`${showOptionFeedback && !isCorrect && isSelected ? 'text-red-700' : 'text-gray-700'}`}>
+                    <span className={`${showOptionFeedback && !isCorrect && isSelected ? 'text-red-400' : 'text-foreground'}`}>
                       <span className="font-semibold">{optionLetter}.</span> {option}
                     </span>
                     {showOptionFeedback && (
                       <div className="flex items-center space-x-1">
                         {isCorrect ? (
-                          <Check className="h-4 w-4 text-green-600" />
+                          <Check className="h-4 w-4 text-green-500" />
                         ) : isSelected ? (
-                          <XCircle className="h-4 w-4 text-red-600" />
+                          <XCircle className="h-4 w-4 text-red-500" />
                         ) : null}
                       </div>
                     )}
@@ -295,15 +295,15 @@ export default function Questionnaire({ content }: QuestionnaireProps) {
                     htmlFor={`option-${index}`}
                     className="flex-1 text-sm font-normal cursor-pointer flex items-center justify-between"
                   >
-                    <span className={`${showOptionFeedback && !isCorrect && isSelected ? 'text-red-700' : 'text-gray-700'}`}>
+                    <span className={`${showOptionFeedback && !isCorrect && isSelected ? 'text-red-400' : 'text-foreground'}`}>
                       <span className="font-semibold">{optionLetter}.</span> {option}
                     </span>
                     {showOptionFeedback && (
                       <div className="flex items-center space-x-1">
                         {isCorrect ? (
-                          <Check className="h-4 w-4 text-green-600" />
+                          <Check className="h-4 w-4 text-green-500" />
                         ) : isSelected ? (
-                          <XCircle className="h-4 w-4 text-red-600" />
+                          <XCircle className="h-4 w-4 text-red-500" />
                         ) : null}
                       </div>
                     )}
@@ -315,8 +315,8 @@ export default function Questionnaire({ content }: QuestionnaireProps) {
         )}
 
         {currentQ.multipleCorrect && (
-          <p className="text-sm text-blue-600 mt-4">
-            Multiple answers may be correct. Select all that apply.
+          <p className="text-sm text-blue-400 mt-4">
+            Може да има повече от един верен отговор. Изберете всички подходящи.
           </p>
         )}
 

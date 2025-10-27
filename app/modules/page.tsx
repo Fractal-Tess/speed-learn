@@ -54,16 +54,16 @@ export default async function ModulesPage() {
   const modules = await getAllModules();
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white shadow-sm border-b">
+      <header className="border-b bg-card/80 backdrop-blur-sm">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-4">
-              <Link href="/" className="text-blue-600 hover:text-blue-800">
+              <Link href="/" className="text-primary hover:text-primary/80 transition-colors">
                 ← Начало
               </Link>
-              <h1 className="text-2xl font-bold text-gray-900">
+              <h1 className="text-2xl font-bold text-foreground">
                 Обучителни модули
               </h1>
             </div>
@@ -89,17 +89,17 @@ export default async function ModulesPage() {
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {modules.map((module) => (
-            <Card key={module.id} className="p-6 hover:shadow-lg transition-shadow">
+            <Card key={module.id} className="p-6 hover:shadow-lg transition-shadow bg-card border-border">
               <div className="mb-4">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                <h3 className="text-lg font-semibold text-foreground mb-2">
                   {module.title}
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-muted-foreground text-sm">
                   {module.description}
                 </p>
               </div>
 
-              <div className="flex items-center justify-between text-sm text-gray-500 mb-6">
+              <div className="flex items-center justify-between text-sm text-muted-foreground mb-6">
                 <div className="flex items-center space-x-1">
                   <Clock className="h-4 w-4" />
                   <span>{module.duration}</span>
@@ -111,7 +111,7 @@ export default async function ModulesPage() {
               </div>
 
               <Link href={`/modules/${module.id}`}>
-                <Button className="w-full bg-blue-600 hover:bg-blue-700">
+                <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
                   Започни
                 </Button>
               </Link>
