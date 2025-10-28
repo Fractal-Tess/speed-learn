@@ -117,11 +117,11 @@ export default function Questionnaire({ content }: QuestionnaireProps) {
     return (
       <div className="text-center py-6">
         <div className="mb-6">
-          <div className="text-6xl font-bold text-blue-600 mb-2">
+          <div className="text-6xl font-bold text-primary mb-2">
             {score}/{questions.length}
           </div>
-          <div className="text-xl text-gray-600 mb-4">
-            {percentage}% Correct
+          <div className="text-xl text-muted-foreground mb-4">
+            {percentage}% Правилно
           </div>
           <Progress value={percentage} className="w-full mb-6" />
         </div>
@@ -133,23 +133,23 @@ export default function Questionnaire({ content }: QuestionnaireProps) {
                              userAnswers.every(answer => question.correctAnswers.includes(answer));
 
             return (
-              <Card key={question.id} className={`p-4 text-left ${isCorrect ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'}`}>
+              <Card key={question.id} className={`p-4 text-left ${isCorrect ? 'bg-green-500/20 border-green-500/50' : 'bg-red-500/20 border-red-500/50'}`}>
                 <div className="flex items-start space-x-3">
                   {isCorrect ? (
-                    <CheckCircle className="h-5 w-5 text-green-600 mt-0.5" />
+                    <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
                   ) : (
-                    <XCircle className="h-5 w-5 text-red-600 mt-0.5" />
+                    <XCircle className="h-5 w-5 text-red-500 mt-0.5" />
                   )}
                   <div className="flex-1">
-                    <div className="font-medium text-gray-900 mb-1">
-                      Question {index + 1}
+                    <div className="font-medium text-foreground mb-1">
+                      Въпрос {index + 1}
                     </div>
-                    <div className="text-sm text-gray-600">
+                    <div className="text-sm text-muted-foreground">
                       {question.question}
                     </div>
                     {!isCorrect && (
-                      <div className="text-sm text-red-700 mt-2">
-                        Correct: {question.correctAnswers.join(', ')}
+                      <div className="text-sm text-red-400 dark:text-red-300 mt-2">
+                        Правилно: {question.correctAnswers.join(', ')}
                       </div>
                     )}
                   </div>
@@ -161,7 +161,7 @@ export default function Questionnaire({ content }: QuestionnaireProps) {
 
         <Button onClick={handleRetake} className="flex items-center space-x-2">
           <RotateCcw className="h-4 w-4" />
-          <span>Retake Quiz</span>
+          <span>Преемини теста</span>
         </Button>
       </div>
     );
@@ -227,11 +227,11 @@ export default function Questionnaire({ content }: QuestionnaireProps) {
                 <div key={index} className={`flex items-start space-x-3 p-3 rounded-lg border ${
                   showOptionFeedback
                     ? isCorrect
-                      ? 'bg-green-50 border-green-200'
+                      ? 'bg-green-500/20 border-green-500/50'
                       : isSelected
-                        ? 'bg-red-50 border-red-200'
-                        : 'bg-gray-50 border-gray-200'
-                    : 'border-gray-200'
+                        ? 'bg-red-500/20 border-red-500/50'
+                        : 'bg-muted border-border'
+                    : 'border-border'
                 }`}>
                   <Checkbox
                     id={`option-${index}`}
@@ -250,7 +250,7 @@ export default function Questionnaire({ content }: QuestionnaireProps) {
                     htmlFor={`option-${index}`}
                     className="flex-1 text-sm font-normal cursor-pointer flex items-center justify-between"
                   >
-                    <span className={`${showOptionFeedback && !isCorrect && isSelected ? 'text-red-400' : 'text-foreground'}`}>
+                    <span className={`${showOptionFeedback && !isCorrect && isSelected ? 'text-red-400 dark:text-red-300' : 'text-foreground'}`}>
                       <span className="font-semibold">{optionLetter}.</span> {option}
                     </span>
                     {showOptionFeedback && (
@@ -284,18 +284,18 @@ export default function Questionnaire({ content }: QuestionnaireProps) {
                 <div key={index} className={`flex items-center space-x-2 p-3 rounded-lg border ${
                   showOptionFeedback
                     ? isCorrect
-                      ? 'bg-green-50 border-green-200'
+                      ? 'bg-green-500/20 border-green-500/50'
                       : isSelected
-                        ? 'bg-red-50 border-red-200'
-                        : 'bg-gray-50 border-gray-200'
-                    : 'border-gray-200'
+                        ? 'bg-red-500/20 border-red-500/50'
+                        : 'bg-muted border-border'
+                    : 'border-border'
                 }`}>
                   <RadioGroupItem value={optionLetter} id={`option-${index}`} />
                   <Label
                     htmlFor={`option-${index}`}
                     className="flex-1 text-sm font-normal cursor-pointer flex items-center justify-between"
                   >
-                    <span className={`${showOptionFeedback && !isCorrect && isSelected ? 'text-red-400' : 'text-foreground'}`}>
+                    <span className={`${showOptionFeedback && !isCorrect && isSelected ? 'text-red-400 dark:text-red-300' : 'text-foreground'}`}>
                       <span className="font-semibold">{optionLetter}.</span> {option}
                     </span>
                     {showOptionFeedback && (
